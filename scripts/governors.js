@@ -16,22 +16,24 @@ const governors = getGovernors()
 
 export const Governors = () => {
     let html = "<ul>"
-        
-            
-                
-                
-                const listItems = governors.map(governor =>  {
-                    return `<ul>
+
+
+
+
+    const listItems = governors.map(governor => {
+        if (governor.isActive === true) {
+            return `<ul>
                     
                     <option value="${governor.id}">${governor.name}</option>
                     
                     </ul> `
-                })    
-                
-                
-                
-                
-                
+        }
+    })
+
+
+
+
+
     html += listItems.join("")
     html += "</ul>"
 
