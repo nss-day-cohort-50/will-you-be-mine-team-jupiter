@@ -1,114 +1,106 @@
 .facilities__header {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .facilities {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .facility__options {
-    display: flex;
-    justify-content: center;
-    margin: 1em;
-    border: solid black;
-    padding: 10px;
-    width: 170px;
+  margin: 1em;
+  border: solid black;
+  padding: 15px 60px 15px 60px;
 }
 
 .minerals {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .mineral__options {
-    margin: 1em;
-    border: solid black;
-    padding-left: 20px;
-    height: 150px;
-    width: 170px;
-}
-
-div.mineral__options ul {
-    padding: 0px;
+  margin: 1em;
+  border: solid black;
+  padding: 15px 25px 15px 25px;
+  height: 150px;
 }
 
 article.chosen__minerals {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 article.chosen__minerals h1 {
-    display: flex;
-    justify-content: space-around;
-    font-size: 30px;
-    margin-bottom: 5px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 30px;
+  margin-bottom: 5px;
 }
 
 article section div.chosen__list {
-    display: flex;
-    justify-content: space-around;
-    border: solid black;
-    width: 400px;
-    height: 80px;
-    padding-top: 5px;
-    margin: 5px;
+  display: flex;
+  justify-content: space-around;
+  border: solid black;
+  width: 400px;
+  height: 80px;
+  padding-top: 5px;
+  margin: 5px;
 }
 
 .governors {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 article.governors__colonies {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: center;
-        margin: 1em;
-        height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1em;
+  height: 200px;
 }
 
 section.governors div {
-    margin-top: 50px;
-    padding: 5px 10px 5px 10px;
+  margin-top: 50px;
+  padding: 5px 10px 5px 10px;
 }
 
 section.governors {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 div.governors__dropdown {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    border: solid black;
-    height: 25px;
-    width: 250px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  border: solid black;
+  height: 25px;
+  width: 250px;
 }
 
 article section.available__resources {
-    margin-right: 220px;
+  margin-right: 220px;
 }
 
 section.available__resources h1 {
-    margin: 0em;
-    display: flex;
-    justify-content: space-around;
-    font-size: 30px;
+  margin: 0em;
+  display: flex;
+  justify-content: space-around;
+  font-size: 30px;
 }
 
 div.purchased__resources {
-    display: flex;
-    justify-content: space-around;
-    border: solid black;
-    margin: 1em;
-    height: 130px;
+  display: flex;
+  justify-content: space-around;
+  border: solid black;
+  margin: 1em;
+  height: 130px;
 }

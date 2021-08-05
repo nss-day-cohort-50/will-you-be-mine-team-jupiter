@@ -8,7 +8,7 @@ export const mineralsAtFacility = () => {
 
     const listItems = availableMinerals.map(mineral => {
         return `<ul>
-        <input type="radio" name="mineral" value="${mineral.id}"/> ${mineral.name}
+        <input type="radio" name="mineral" id="M${mineral.id}" hidden/> ${mineral.name}
         </ul>`
     })
 
