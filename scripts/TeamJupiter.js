@@ -1,3 +1,5 @@
+import { Facilities } from "./facilities.js"
+import { mineralsAtFacility } from "./minerals.js"
 
 
 export const TeamJupiter = () => {
@@ -6,39 +8,18 @@ export const TeamJupiter = () => {
             <h1 class="title">Active Mining Facilities</h1>
         </header>
 
-        <article class="facilities">
-            <div class="facility__options">
-                Facility 1
-            </div>
-            <div class="facility__options">
-                Facility 2
-            </div>
-            <div class="facility__options">
-                Facility 3
-            </div>
-            <div class="facility__options">
-                Facility 4
-            </div>
-        </article>
+        ${Facilities()}
 
         <article class="minerals">
-            <div class="mineral__options">
-                Mineral Placeholder
-            </div>
-            <div class="mineral__options">
-                Mineral Placeholder
-            </div>
-            <div class="mineral__options">
-                Mineral Placeholder
-            </div>
-            <div class="mineral__options">
-                Mineral Placeholder
-            </div>
+            ${mineralsAtFacility()}
+            ${mineralsAtFacility()}
+            ${mineralsAtFacility()}
+            ${mineralsAtFacility()}
         </article>
 
         <article class="chosen__minerals">
+            <h1>Chosen Minerals</h1>
             <section>
-                <h1>Chosen Minerals</h1>
                 <div class="chosen__list">
                     Chosen Minerals Placeholder
                 </div>
