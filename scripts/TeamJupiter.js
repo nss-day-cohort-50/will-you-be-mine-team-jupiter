@@ -1,5 +1,6 @@
 import { Facilities } from "./facilities.js"
 import { mineralsAtFacility } from "./minerals.js"
+import { Governors } from "./governors.js"
 
 
 export const TeamJupiter = () => {
@@ -34,9 +35,13 @@ export const TeamJupiter = () => {
                 <div>
                     Choose Governor
                 </div>
-                <div class="governors__dropdown">
-                    Governors Dropdown List
+
+                <div class="governors__dropdown">         
+                    <select name="governors" id="governors">
+                     ${Governors()}
+                    </select>
                 </div>
+                
             </section>
             <section class="available__resources">
                 <h1>Available Resources for Colony</h1>
