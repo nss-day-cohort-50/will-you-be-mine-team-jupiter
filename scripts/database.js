@@ -27,3 +27,51 @@ const database = {
   availableResources: [],
   orderBuilder: {},
 };
+export const getAvailableMinerals = () => {
+  return database.availableMinerals.map((availableMineral) => ({
+    ...availableMineral,
+  }));
+};
+export const getMiningFacilities = () => {
+  return database.miningFacilities.map((miningFacility) => ({
+    ...miningFacility,
+  }));
+};
+export const getGovernors = () => {
+  return database.governors.map((governor) => ({ ...governor }));
+};
+export const getColonies = () => {
+  return database.colonies.map((colony) => ({ ...colony }));
+};
+export const setAvailableMineral = (id) => {
+  database.orderBuilder.availableMineralId = id;
+};
+export const setMiningFacility = (id) => {
+  database.orderBuilder.miningFacilityId = id;
+};
+export const setGovernor = (id) => {
+  database.orderBuilder.governorId = id;
+};
+export const setColony = (id) => {
+  database.orderBuilder.colonyId = id;
+};
+export const addCustomOrder = () => {
+  // Copy the current state of user choices
+  const newOrder = { ...database.orderBuilder };
+
+  // Add a new primary key to the object
+  const lastIndex = database.availableResources.length - 1;
+  newOrder.id = database.availableResources[lastIndex].id + 1;
+
+  // Add a timestamp to the order
+  newOrder.timestamp = Date.now();
+
+  // Add the new order object to custom orders state
+  database.availableResources.push(newOrder);
+  // Reset the temporary state for user choices
+  console.log(database.orderBuilder);
+  database.orderBuilder = {};
+
+  // Broadcast a notification that permanent state has changed
+  document.dispatchEvent(new CustomEvent("stateChanged"));
+};
