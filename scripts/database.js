@@ -1,8 +1,9 @@
 const database = {
   availableMinerals: [
-    { id: 1, name: "Salt", price: 5 },
-    { id: 2, name: "Iron", price: 10 },
-    { id: 3, name: "Nickel", price: 15 },
+    { id: 1, name: "Salt", price: 5, amount: 1},    // Amount in tons
+    { id: 2, name: "Iron", price: 10, amount: 1},
+    { id: 3, name: "Nickel", price: 15, amount: 1},
+    { id: 4, name: "Gold", price: 12, amount: 1},
   ],
   miningFacilities: [
     { id: 1, name: "Europa", isActive: true },
