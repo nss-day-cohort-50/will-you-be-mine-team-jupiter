@@ -48,19 +48,6 @@ export const Governors = () => {
 
 
 
-        `
-            <label for="governors" >Choose Governor</label>
-
-                <select name="governors" id="governors">
-                    <option value="${governors.id}">${governors.name}</option>
-                </select>
-               
-                `   
-
-
-
-
-
 
 
 
