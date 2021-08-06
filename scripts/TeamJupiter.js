@@ -1,24 +1,24 @@
-import { Facilities } from "./facilities.js"
-import { mineralsAtFacility } from "./minerals.js"
-import { Governors } from "./governors.js"
+import { Facilities } from "./facilities.js";
+import { mineralsAtFacility } from "./minerals.js";
+import { Governors } from "./governors.js";
 
-document.addEventListener("change", (event) => {
-  if (event.target.value === "1") {
+document.addEventListener("click", (event) => {
+  if (event.target.id === "facility--1") {
     document.getElementById("M1").hidden = false;
     document.getElementById("M2").hidden = true;
     document.getElementById("M3").hidden = true;
     document.getElementById("M4").hidden = true;
-  } else if (event.target.value === "2") {
+  } else if (event.target.id === "facility--2") {
     document.getElementById("M1").hidden = true;
     document.getElementById("M2").hidden = false;
     document.getElementById("M3").hidden = true;
     document.getElementById("M4").hidden = true;
-  } else if (event.target.value === "3") {
+  } else if (event.target.id === "facility--3") {
     document.getElementById("M1").hidden = true;
     document.getElementById("M2").hidden = true;
     document.getElementById("M3").hidden = false;
     document.getElementById("M4").hidden = true;
-  } else if (event.target.value === "4") {
+  } else if (event.target.id === "facility--4") {
     document.getElementById("M1").hidden = true;
     document.getElementById("M2").hidden = true;
     document.getElementById("M3").hidden = true;
