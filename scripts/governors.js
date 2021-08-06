@@ -6,6 +6,18 @@ const governors = getGovernors()
 
 
 
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.name === "governors") {
+            setGovernor(parseInt(event.target.value))
+        }
+    }
+)
+
+
+
+
 
 
 
