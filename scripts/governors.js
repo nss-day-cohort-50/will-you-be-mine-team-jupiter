@@ -1,10 +1,6 @@
 import { getGovernors, setGovernor } from "./database.js";
 
-const governors = getGovernors()
-
-
-
-
+const governorsArray = getGovernors()
 
 document.addEventListener(
     "change",
@@ -12,15 +8,9 @@ document.addEventListener(
         if (event.target.name === "governors") {
             setGovernor(parseInt(event.target.value))
         }
+
     }
 )
-
-
-
-
-
-
-
 
 
 // ---- Dropdown List For Governor Selection ---- \\
@@ -29,10 +19,7 @@ document.addEventListener(
 export const Governors = () => {
     let html = "<ul>"
 
-
-
-
-    const listItems = governors.map(governor => {
+    const listItems = governorsArray.map(governor => {
         if (governor.isActive === true) {
             return `<ul>
                     
@@ -42,15 +29,12 @@ export const Governors = () => {
         }
     })
 
-
-
-
-
     html += listItems.join("")
     html += "</ul>"
 
     return html
 }
+
 
 
 

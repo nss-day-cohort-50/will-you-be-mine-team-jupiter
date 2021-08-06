@@ -1,16 +1,18 @@
-import { getAvailableMinerals, getMiningFacilities } from "./database.js";
+import { getAvailableMinerals, getMiningFacilities, getTransientState } from "./database.js";
 
 
-const availableMinerals = getAvailableMinerals()
 const facilities  = getMiningFacilities()
 
 
-export const Facilities = () => {
+export const Facilities = () => { 
+    const state = getTransientState()
+
+
     let html = "<article class='facilities'>"
     
     const listItems = facilities.map(facility => {
         return `<div class='facility__options'>
-        <input type="radio" name="facility" value="${facility.id}"/> ${facility.name}
+        <button ${state.selectedGovernorId > 0 ? "" : "disabled"} id="facility--${facility.id}">${facility.name}</button>
         </div>`
     })
 
@@ -19,12 +21,6 @@ export const Facilities = () => {
 
     return html
 }
-
-
-
-
-
-
 
 
 
