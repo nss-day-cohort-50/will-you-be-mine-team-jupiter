@@ -31,7 +31,7 @@ const database = {
 
   availableResources: [],
 
-  orderBuilder: {
+  transientState: {
     selectedGovernorId: 0,
     selectedFacilityId: 0,
     selectedMinerals: []
@@ -55,17 +55,21 @@ export const getColonies = () => {
   return database.colonies.map((colony) => ({ ...colony }));
 };
 
-export const setAvailableMineral = (id) => {
-  database.orderBuilder.availableMineralId = id;
+export const getTransientState = () => {
+  return database.transientState
 };
+
+
+
 export const setMiningFacility = (id) => {
-  database.orderBuilder.miningFacilityId = id;
+  database.transientState.selectedFacilityId = id;
 };
 export const setGovernor = (id) => {
-  database.orderBuilder.governorId = id;
+  database.transientState.selectedGovernorId = id;
+  document.dispatchEvent(new CustomEvent("stateChanged"))
 };
 export const setColony = (id) => {
-  database.orderBuilder.colonyId = id;
+  database.transientState.colonyId = id;
 };
 
 

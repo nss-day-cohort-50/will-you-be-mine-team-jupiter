@@ -8,6 +8,7 @@ document.addEventListener(
         if (event.target.name === "governors") {
             setGovernor(parseInt(event.target.value))
         }
+
     }
 )
 
