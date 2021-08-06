@@ -1,16 +1,19 @@
 const database = {
+
   availableMinerals: [
-    { id: 1, name: "Salt", price: 5, amount: 1},    // Amount in tons
-    { id: 2, name: "Iron", price: 10, amount: 1},
-    { id: 3, name: "Nickel", price: 15, amount: 1},
-    { id: 4, name: "Gold", price: 12, amount: 1},
+    { id: 1, name: "Salt", price: 5,},
+    { id: 2, name: "Iron", price: 10,},
+    { id: 3, name: "Nickel", price: 15,},
+    { id: 4, name: "Gold", price: 12,},
   ],
+
   miningFacilities: [
     { id: 1, name: "Europa", isActive: true },
     { id: 2, name: "Io", isActive: false },
     { id: 3, name: "Ganyemede", isActive: true },
     { id: 4, name: "Callisto", isActive: false },
   ],
+
   governors: [
     { id: 1, name: "Arnold Schwarzenegger", isActive: false, colonyId: 1 },
     { id: 2, name: "Gill Bates", isActive: true, colonyId: 1 },
@@ -19,6 +22,7 @@ const database = {
     { id: 5, name: "Jim Bezos", isActive: false, colonyId: 3 },
     { id: 6, name: "Richard M. Nixon's head", isActive: true, colonyId: 3 },
   ],
+
   colonies: [
     { id: 1, name: "colony 1" },
     { id: 2, name: "colony 2" },
@@ -26,8 +30,14 @@ const database = {
   ],
 
   availableResources: [],
-  orderBuilder: {},
+
+  orderBuilder: {
+    selectedGovernorId: 0,
+    selectedFacilityId: 0,
+    selectedMinerals: []
+  },
 };
+
 export const getAvailableMinerals = () => {
   return database.availableMinerals.map((availableMineral) => ({
     ...availableMineral,
@@ -44,6 +54,7 @@ export const getGovernors = () => {
 export const getColonies = () => {
   return database.colonies.map((colony) => ({ ...colony }));
 };
+
 export const setAvailableMineral = (id) => {
   database.orderBuilder.availableMineralId = id;
 };
@@ -56,6 +67,8 @@ export const setGovernor = (id) => {
 export const setColony = (id) => {
   database.orderBuilder.colonyId = id;
 };
+
+
 export const addCustomOrder = () => {
   // Copy the current state of user choices
   const newOrder = { ...database.orderBuilder };

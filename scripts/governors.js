@@ -1,14 +1,6 @@
 import { getGovernors, setGovernor } from "./database.js";
 
-const governors = getGovernors()
-
-
-
-
-
-
-
-
+const governorsArray = getGovernors()
 
 
 // ---- Dropdown List For Governor Selection ---- \\
@@ -17,10 +9,7 @@ const governors = getGovernors()
 export const Governors = () => {
     let html = "<ul>"
 
-
-
-
-    const listItems = governors.map(governor => {
+    const listItems = governorsArray.map(governor => {
         if (governor.isActive === true) {
             return `<ul>
                     
@@ -30,15 +19,12 @@ export const Governors = () => {
         }
     })
 
-
-
-
-
     html += listItems.join("")
     html += "</ul>"
 
     return html
 }
+
 
 
 
