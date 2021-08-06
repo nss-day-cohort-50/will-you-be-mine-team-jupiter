@@ -56,8 +56,10 @@ export const TeamJupiter = () => {
                     Choose Governor
                 </div>
 
-                <div class="governors__dropdown">         
-                    <select name="governors" id="governors">
+                    
+                <div class="governors__dropdown">
+                <select name="governors" id="governors">
+                    <option value=""  selected >Choose a governor...</option>
                      ${Governors()}
                     </select>
                 </div>
