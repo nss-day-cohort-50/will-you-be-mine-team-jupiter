@@ -67,7 +67,9 @@ export const TeamJupiter = () => {
                 
             </section>
             <section class="available__resources">
-                ${AvailableResources()}
+                <div class="purchased__resources">
+                    ${AvailableResources()}
+                </div>
             </section>
         </article>
 
