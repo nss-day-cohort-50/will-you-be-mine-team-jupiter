@@ -14,6 +14,15 @@ const database = {
     { id: 4, name: "Callisto", isActive: false },
   ],
 
+  facilityMineralStocks: [
+    { id: 1, mineralId: 1, miningFacilityId: 1,availableStock: 3 },
+    { id: 2, mineralId: 2, miningFacilityId: 2,availableStock: 2 },
+    { id: 3, mineralId: 3, miningFacilityId: 3,availableStock: 1 },
+    { id: 4, mineralId: 4, miningFacilityId: 2,availableStock: 2 },
+    { id: 5, mineralId: 3, miningFacilityId: 1,availableStock: 3 },
+    { id: 6, mineralId: 2, miningFacilityId: 2,availableStock: 4 },
+  ],
+
   governors: [
     { id: 1, name: "Arnold Schwarzenegger", isActive: false, colonyId: 1 },
     { id: 2, name: "Gill Bates", isActive: true, colonyId: 1 },
@@ -44,6 +53,7 @@ const database = {
   resourcesForPurchase: {}
 };
 
+
 export const getAvailableMinerals = () => {
   return database.availableMinerals.map((availableMineral) => ({
     ...availableMineral,
@@ -68,7 +78,10 @@ export const getTransientState = () => {
 };
 export const getResourcesForPurchase = () => {
   return database.resourcesForPurchase
-}
+};
+export const getFacilityMineralStocks = () => {
+  return database.facilityMineralStocks.map((stock) => ({...stock}))
+};
 
 
 

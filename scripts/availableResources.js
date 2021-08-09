@@ -1,21 +1,30 @@
-import { getAvailableResources } from "./database.js";
+import { getAvailableMinerals, getAvailableResources, getColonies, getGovernors } from "./database.js";
 
 
 
 
 export const AvailableResources =() => {
-
     const resources = getAvailableResources()
-    
+    const colonies = getColonies()
+    const minerals = getAvailableMinerals()
+
     let html = "<div class='purchased__resources'>"
 
-    const listItems = resources.map(resource => { 
-            return `<h3>Name</h3>
-                    <ul>
-                        ${resource.amount} Tons of (resource name placeholder)
-                    </ul>`
-    })
+    // const colonyNameFinder = colonies.find(colony => {
+    //     colony.name === colonyName
+    // })
+    // const mineralNameFinder = minerals.find(mineral => {
+    //     mineral.name === mineralName
+    // })
 
+    const listItems = resources.map(resource => {
+                return `<h3>(Colony Name)</h3>
+                        <ul>
+                            ${resource.amount} Tons of (mineral name)
+                        </ul>`
+                }
+                
+        )
     html += listItems.join("")
     html += "</div>"
 
