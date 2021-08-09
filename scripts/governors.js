@@ -1,5 +1,5 @@
 import { getGovernors, setGovernor, getTransientState } from "./database.js";
-import { renderAllHTML } from "./main.js"
+
 
 const governorsArray = getGovernors()
 
@@ -8,8 +8,8 @@ document.addEventListener(
     (event) => {
         if (event.target.name === "governors") {
             setGovernor(parseInt(event.target.value))
-            console.log("State of data has changed. Regenerating HTML...")
-            renderAllHTML()
+           
+           
         }
 
     }

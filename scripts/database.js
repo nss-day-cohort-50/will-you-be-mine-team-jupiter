@@ -91,7 +91,7 @@ export const setMiningFacility = (id) => {
 };
 export const setGovernor = (id) => {
   database.transientState.selectedGovernorId = id;
-  // document.dispatchEvent(new CustomEvent("stateChanged"))
+  document.dispatchEvent(new CustomEvent("stateChanged"))
 };
 export const setColony = (id) => {
   database.transientState.colonyId = id;
