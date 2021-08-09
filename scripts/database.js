@@ -1,10 +1,10 @@
 const database = {
 
   availableMinerals: [
-    { id: 1, name: "Salt", price: 5,},
-    { id: 2, name: "Iron", price: 10,},
-    { id: 3, name: "Nickel", price: 15,},
-    { id: 4, name: "Gold", price: 12,},
+    { id: 1, name: "Salt", price: 5, amount: 1},
+    { id: 2, name: "Iron", price: 10, amount: 1},
+    { id: 3, name: "Nickel", price: 15, amount: 1},
+    { id: 4, name: "Gold", price: 12, amount: 1},
   ],
 
   miningFacilities: [
@@ -12,6 +12,15 @@ const database = {
     { id: 2, name: "Io", isActive: false },
     { id: 3, name: "Ganyemede", isActive: true },
     { id: 4, name: "Callisto", isActive: false },
+  ],
+
+  facilityMineralStocks: [
+    { id: 1, mineralId: 1, miningFacilityId: 1,availableStock: 3 },
+    { id: 2, mineralId: 2, miningFacilityId: 2,availableStock: 2 },
+    { id: 3, mineralId: 3, miningFacilityId: 3,availableStock: 1 },
+    { id: 4, mineralId: 4, miningFacilityId: 2,availableStock: 2 },
+    { id: 5, mineralId: 3, miningFacilityId: 1,availableStock: 3 },
+    { id: 6, mineralId: 2, miningFacilityId: 2,availableStock: 4 },
   ],
 
   governors: [
@@ -24,19 +33,26 @@ const database = {
   ],
 
   colonies: [
-    { id: 1, name: "colony 1" },
-    { id: 2, name: "colony 2" },
-    { id: 3, name: "colony 3" },
+    { id: 1, name: "Everest" },
+    { id: 2, name: "Kilimanjaro" },
+    { id: 3, name: "Rushmore" },
   ],
 
-  availableResources: [],
+  availableResources: [
+    {id: 1, mineralId: 1, colonyId: 1, amount: 1},
+    {id: 2, mineralId: 2, colonyId: 2, amount: 2},
+    {id: 3, mineralId: 3, colonyId: 3, amount: 3},
+  ],
 
   transientState: {
     selectedGovernorId: 0,
     selectedFacilityId: 0,
     selectedMinerals: []
   },
+
+  resourcesForPurchase: {}
 };
+
 
 export const getAvailableMinerals = () => {
   return database.availableMinerals.map((availableMineral) => ({
@@ -54,15 +70,24 @@ export const getGovernors = () => {
 export const getColonies = () => {
   return database.colonies.map((colony) => ({ ...colony }));
 };
-
+export const getAvailableResources = () => {
+  return database.availableResources.map((resource) => ({ ...resource }));
+};
 export const getTransientState = () => {
   return database.transientState
+};
+export const getResourcesForPurchase = () => {
+  return database.resourcesForPurchase
+};
+export const getFacilityMineralStocks = () => {
+  return database.facilityMineralStocks.map((stock) => ({...stock}))
 };
 
 
 
 export const setMiningFacility = (id) => {
   database.transientState.selectedFacilityId = id;
+  document.dispatchEvent(new CustomEvent("stateChanged"))
 };
 export const setGovernor = (id) => {
   database.transientState.selectedGovernorId = id;
@@ -73,22 +98,20 @@ export const setColony = (id) => {
 };
 
 
-export const addCustomOrder = () => {
+export const addPurchase = () => {
   // Copy the current state of user choices
-  const newOrder = { ...database.orderBuilder };
+  const newOrder = { ...database.resourcesForPurchase };
 
   // Add a new primary key to the object
   const lastIndex = database.availableResources.length - 1;
   newOrder.id = database.availableResources[lastIndex].id + 1;
 
-  // Add a timestamp to the order
-  newOrder.timestamp = Date.now();
-
   // Add the new order object to custom orders state
   database.availableResources.push(newOrder);
+
   // Reset the temporary state for user choices
-  console.log(database.orderBuilder);
-  database.orderBuilder = {};
+  console.log(database.resourcesForPurchase);
+  database.resourcesForPurchase = {};
 
   // Broadcast a notification that permanent state has changed
   document.dispatchEvent(new CustomEvent("stateChanged"));

@@ -1,6 +1,7 @@
 import { Facilities } from "./facilities.js"
 import { mineralsAtFacility } from "./minerals.js"
 import { Governors } from "./governors.js"
+import { AvailableResources } from "./availableResources.js";
 
 document.addEventListener("change", (event) => {
   if (event.target.value === "1") {
@@ -66,10 +67,7 @@ export const TeamJupiter = () => {
                 
             </section>
             <section class="available__resources">
-                <h1>Available Resources for Colony</h1>
-                <div class="purchased__resources">
-                    Available Resources Placeholder
-                </div>
+                ${AvailableResources()}
             </section>
         </article>
 

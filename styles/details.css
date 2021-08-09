@@ -53,17 +53,11 @@ article section div.chosen__list {
   margin: 5px;
 }
 
-.governors {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-
 article.governors__colonies {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   margin: 1em;
   height: 200px;
 }
@@ -75,6 +69,9 @@ section.governors div {
 
 section.governors {
   margin-right: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 div.governors__dropdown {
