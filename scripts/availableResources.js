@@ -1,4 +1,4 @@
-import { getAvailableMinerals, getAvailableResources, getColonies, getGovernors } from "./database.js";
+import { getAvailableMinerals, getAvailableResources, getColoniesz, getGovernors } from "./database.js";
 
 
 
