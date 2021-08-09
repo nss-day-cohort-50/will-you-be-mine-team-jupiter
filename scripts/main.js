@@ -3,7 +3,7 @@ import { TeamJupiter } from "./TeamJupiter.js"
 
 const mainContainer = document.querySelector("#container")
 
-const renderAllHTML = () => {
+export const renderAllHTML = () => {
     mainContainer.innerHTML = TeamJupiter()
 }
 

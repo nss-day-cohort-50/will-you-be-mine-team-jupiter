@@ -1,4 +1,5 @@
-import { getGovernors, setGovernor } from "./database.js";
+import { getGovernors, setGovernor, getTransientState } from "./database.js";
+import { renderAllHTML } from "./main.js"
 
 const governorsArray = getGovernors()
 
@@ -7,6 +8,8 @@ document.addEventListener(
     (event) => {
         if (event.target.name === "governors") {
             setGovernor(parseInt(event.target.value))
+            console.log("State of data has changed. Regenerating HTML...")
+            renderAllHTML()
         }
 
     }
@@ -17,15 +20,23 @@ document.addEventListener(
 
 
 export const Governors = () => {
+    const state = getTransientState()
+    
     let html = "<ul>"
 
     const listItems = governorsArray.map(governor => {
         if (governor.isActive === true) {
-            return `<ul>
-                    
-                    <option value="${governor.id}">${governor.name}</option>
-                    
+
+            if (governor.id === state.selectedGovernorId) {
+                return `<ul>
+                    <option value="${governor.id}" selected >${governor.name}</option>
                     </ul> `
+            } else {
+
+                return `<ul>
+                <option value="${governor.id}" >${governor.name}</option>
+                </ul> `
+            }
         }
     })
 
