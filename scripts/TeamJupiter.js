@@ -3,6 +3,7 @@ import { mineralsAtFacility } from "./minerals.js";
 import { Governors } from "./governors.js";
 import { AvailableResources } from "./availableResources.js";
 import { getTransientState } from "./database.js";
+import { ChosenMinerals } from "./chosenMinerals.js";
 
 const state = getTransientState();
 
@@ -15,30 +16,6 @@ document.addEventListener("click", (clickEvent) => {
     }
   }
 });
-
-// document.addEventListener("click", (event) => {
-//   if (event.target.id.startsWith("facility")) {
-//     document.getElementById("M1").hidden = false;
-//     document.getElementById("M2").hidden = true;
-//     document.getElementById("M3").hidden = true;
-//     document.getElementById("M4").hidden = true;
-//   } else if (event.target.id.startsWith("facility")) {
-//     document.getElementById("M1").hidden = true;
-//     document.getElementById("M2").hidden = false;
-//     document.getElementById("M3").hidden = true;
-//     document.getElementById("M4").hidden = true;
-//   } else if (event.target.id.startsWith("facility")) {
-//     document.getElementById("M1").hidden = true;
-//     document.getElementById("M2").hidden = true;
-//     document.getElementById("M3").hidden = false;
-//     document.getElementById("M4").hidden = true;
-//   } else if (event.target.id.startsWith("facility")) {
-//     document.getElementById("M1").hidden = true;
-//     document.getElementById("M2").hidden = true;
-//     document.getElementById("M3").hidden = true;
-//     document.getElementById("M4").hidden = false;
-//   }
-// });
 
 export const TeamJupiter = () => {
   return `
@@ -56,7 +33,7 @@ export const TeamJupiter = () => {
             <h1>Chosen Minerals</h1>
             <section>
                 <div class="chosen__list">
-                    Chosen Minerals Placeholder
+                    ${ChosenMinerals()}
                 </div>
             </section>
             <section class="purchase__button">
