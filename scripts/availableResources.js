@@ -50,6 +50,8 @@ export const AvailableResources =() => {
                     ${foundAvailableResources.amount} Tons of ${foundMineral.name}
                 </li>`
 
+        } else {
+            return ``
         }
 }
     
