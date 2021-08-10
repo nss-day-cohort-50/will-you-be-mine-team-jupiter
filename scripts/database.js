@@ -41,7 +41,7 @@ const database = {
     { id: 3, mineralId: 3, colonyId: 3, amount: 3 },
   ],
 
-  transientState: {
+  transientState: {                                                   // Selected Radio button PUSHES value into transientState.selectedMinerals array
     selectedGovernorId: 0,
     selectedFacilityId: 0,
     selectedMinerals: [],
@@ -90,6 +90,28 @@ export const setGovernor = (id) => {
 export const setColony = (id) => {
   database.transientState.colonyId = id;
 };
+export const setSelectedMineral = (id) => {
+  database.transientState.selectedMinerals.push(id);
+};
+
+export const addSelectedMineral = () => {
+  const newMineral = { ...database.transientState.selectedMinerals }
+
+  if (database.transientState.selectedMinerals.length === 0) {
+    newMineral.id === 1
+  } else {
+    const lastIndex = database.transientState.selectedMinerals.length - 1;
+
+    newMineral.id = database.transientState.selectedMinerals[lastIndex].id + 1;
+  }
+
+  database.transientState.selectedMinerals.push(newMineral)
+
+  console.log(database.transientState.selectedMinerals)
+
+  document.dispatchEvent(new CustomEvent("stateChanged"));
+}
+
 
 export const addPurchase = () => {
   // Copy the current state of user choices

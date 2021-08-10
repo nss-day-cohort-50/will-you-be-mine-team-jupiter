@@ -1,21 +1,22 @@
 import {
-  getAvailableMinerals,
-  getFacilityMinerals,
-  getMiningFacilities,
-  getTransientState,
+  getTransientState, setSelectedMineral,
 } from "./database.js";
 
-// filter >> map(find)
-const facilities = getMiningFacilities();
-const minerals = getAvailableMinerals();
-const facilityMinerals = getFacilityMinerals();
+document.addEventListener(
+  "click",
+  (event) => {
+    if (event.target.name === "mineral") {
+      setSelectedMineral(parseInt(event.target.value))
+      
+    }
+  }
+)
 
-export const FaciltyMinerals = () => {
+export const ChosenMinerals = () => {
   const state = getTransientState();
+  
+    
+  console.log(state.selectedMinerals)
+  return `${state.selectedMinerals}`
 
-  let html = "<div class='mineral__options'>";
-
-  const filteredMinerals = facilityMinerals.filter((facilityMineral) => {
-    facilityMineral.miningFacilityId === facilities.id;
-  });
-};
+  }

@@ -2,9 +2,12 @@ import {
   getAvailableMinerals,
   getFacilityMineralStocks,
   getTransientState,
+  setSelectedMineral,
 } from "./database.js";
 const availableMinerals = getAvailableMinerals();
 const facilityMineralStocks = getFacilityMineralStocks();
+
+
 
 export const mineralsAtFacility = () => {
   const state = getTransientState();
@@ -19,7 +22,7 @@ export const mineralsAtFacility = () => {
       return mineral.id === foundMineralStock.mineralId;
     });
     return `<div class="mineral__options">
-            <input type="radio" name="mineral" id="mineral--${foundMineral.id}" /> ${foundMineral.name} x${foundMineralStock.availableStock}
+            <input type="radio" name="mineral" id="mineral--${foundMineral.id} value="${foundMineral.id}" /> ${foundMineral.name} x${foundMineralStock.availableStock}
             </div>`;
   } else {
     return `<div class="mineral__options">
