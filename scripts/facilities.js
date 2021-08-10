@@ -1,37 +1,38 @@
-import { getAvailableMinerals, getMiningFacilities, getTransientState } from "./database.js";
+import {
+  getAvailableMinerals,
+  getMiningFacilities,
+  getTransientState,
+  setMiningFacility,
+} from "./database.js";
+const facilities = getMiningFacilities();
+const state = getTransientState();
 
+document.addEventListener("click", (clickEvent) => {
+  const itemClicked = clickEvent.target;
+  if (itemClicked.id.startsWith("facility")) {
+    const [, facilityId] = itemClicked.id.split("--");
+    setMiningFacility(parseInt(facilityId));
+  }
+});
 
-const facilities  = getMiningFacilities()
+export const Facilities = () => {
+  const state = getTransientState();
 
+  let html = "<article class='facilities'>";
 
-export const Facilities = () => { 
-    const state = getTransientState()
+  const listItems = facilities.map((facility) => {
+    return `<div class='facility__options'>
+        <button ${
+          state.selectedGovernorId > 0 ? "" : "disabled"
+        } id="facility--${facility.id}">${facility.name}</button>
+        </div>`;
+  });
 
+  html += listItems.join(" ");
+  html += "</article>";
 
-    let html = "<article class='facilities'>"
-    
-    const listItems = facilities.map(facility => {
-        return `<div class='facility__options'>
-        <button ${state.selectedGovernorId > 0 ? "" : "disabled"} id="facility--${facility.id}">${facility.name}</button>
-        </div>`
-    })
-
-    html += listItems.join(" ")
-    html += "</article>"
-
-    return html
-}
-
-
-
-
-
-
-
-
-
-
-
+  return html;
+};
 
 // Given the user wants to purchase the chosen minerals
 // When the user clicks the "Purchase All Minerals" button (refer to wireframe)
